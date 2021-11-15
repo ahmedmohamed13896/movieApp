@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300&family=Montserrat:wght@300&display=swap');
+
+$bgColor:#131722;
+$lightBgColor:#24baef;
+$bgTransparent: rgba(36,186,239,.6);
+$fontColor:#fff;
+$borderColor:#a8a8a83d;
+$borderHeight:1px;
+$secondFontColor:#949cb0;
+:root{
+  font-size: 1rem;
+}
+body{
+  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat Alternates', sans-serif;
+  background-color: $bgColor;
+  color: $fontColor;
+}
+
+a,
+.nav-link{
+  color: $fontColor;
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+
+a:hover{
+  color: $fontColor;
+  text-decoration: none;
+}

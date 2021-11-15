@@ -1,0 +1,60 @@
+<div class="w-75 m-auto py-4">
+  <form [formGroup]="registerForm" (ngSubmit)="submitRegisterForm(registerForm)">
+    <!-- {{registerForm.errors | json}} -->
+    <br>
+    <div class="mb-3">
+      <label for="first_name">first_name</label>
+      <input formControlName="first_name" type="text" class="form-control" name="first_name" id="first_name">
+      <div class="text-danger" *ngIf="registerForm.get('first_name')?.errors != null && registerForm.get('first_name')?.touched">
+        <small *ngIf="registerForm.get('first_name')?.errors?.required != null">first_name is required</small>
+        <small *ngIf="registerForm.get('first_name')?.errors?.minlength != null">Min length is 3 chars </small>
+        <small *ngIf="registerForm.get('first_name')?.errors?.maxlength != null">Max length is 10 chars</small>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="last_name">last_name</label>
+      <input formControlName="last_name" type="text" class="form-control" name="last_name" id="last_name">
+      <div class="text-danger" *ngIf="registerForm.get('last_name')?.errors != null && registerForm.get('last_name')?.touched">
+        <small *ngIf="registerForm.get('last_name')?.errors?.required != null">last_name is required</small>
+        <small *ngIf="registerForm.get('last_name')?.errors?.minlength != null">Min length is 3 chars </small>
+        <small *ngIf="registerForm.get('last_name')?.errors?.maxlength != null">Max length is 10 chars</small>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="email">email</label>
+      <input formControlName="email" type="email" class="form-control" name="email" id="email">
+      <div class="text-danger" *ngIf="registerForm.get('email')?.errors != null && registerForm.get('email')?.touched">
+        <small *ngIf="registerForm.get('email')?.errors?.required != null">email is required</small>
+        <small *ngIf="registerForm.get('email')?.errors?.pattern != null || registerForm.get('email')?.errors?.email != null">Email is invalid</small>
+
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="password">password</label>
+      <input formControlName="password" type="password" class="form-control" name="password" id="password">
+      <div class="text-danger" *ngIf="registerForm.get('password')?.errors != null && registerForm.get('password')?.touched">
+        <small *ngIf="registerForm.get('password')?.errors?.required != null">password is required</small>
+        <small *ngIf="registerForm.get('password')?.errors?.pattern != null">password must start with uppercase letter and contain chars and digits between 8-16 letters</small>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="age">age</label>
+      <input formControlName="age" type="number" class="form-control" name="age" id="age">
+      <div class="text-danger" *ngIf="registerForm.get('age')?.errors != null && registerForm.get('age')?.touched">
+        <small *ngIf="registerForm.get('age')?.errors?.required != null">age is required</small>
+        <small *ngIf="registerForm.get('age')?.errors?.min != null">Min age is 14 </small>
+        <small *ngIf="registerForm.get('age')?.errors?.max != null">Max age is 60 </small>
+      </div>
+    </div>
+
+    <div class="mb-3 d-flex">
+      <button class="btn btn-info mx-auto" [disabled]="registerForm.invalid" type="submit">Submit</button>
+    </div>
+    <div class="text-danger" *ngIf="error">
+      {{error}}
+    </div>
+
+
+  </form>
+</div>
